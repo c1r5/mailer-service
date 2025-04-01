@@ -1,0 +1,11 @@
+### POST SENDMAIL TEST
+POST http://localhost:3000/send-mail
+Content-Type: application/json
+
+{
+  "to": "destinatario@email.com",
+  "subject": "Teste de E-mail",
+  "body": "Este é um teste de envio de e-mail via API."
+}
+
+###
