@@ -1,6 +1,6 @@
 import {FastifyInstance} from "fastify";
-import {sendEmailSchema, SendEmailSchema} from "@/src/api/view/send-email-schema";
-import SendMailUsecases from "@/src/application/usecases/send-mail-usecases";
+import {sendEmailSchema, SendEmailSchema} from "@api/view/send-email-schema";
+import SendMailUsecases from "@application/usecases/send-mail-usecases";
 
 export default class SendEmailController {
     constructor(

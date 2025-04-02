@@ -1,8 +1,9 @@
-import {NodemailerService} from "@/src/application/services/nodemailer-service";
-import SendEmailController from "@/src/api/controllers/send-email-controller";
+import {NodemailerService} from "@application/services/nodemailer-service"
+import SendEmailController from "@api/controllers/send-email-controller"
 import Fastify from "fastify";
-import {serializerCompiler, validatorCompiler} from "fastify-type-provider-zod";
-import SendMailUsecases from "@/src/application/usecases/send-mail-usecases";
+import {serializerCompiler, validatorCompiler} from "fastify-type-provider-zod"
+import SendMailUsecases from "@application/usecases/send-mail-usecases"
+import * as process from "node:process";
 
 (async () => {
     const fastify = Fastify({
@@ -13,8 +14,8 @@ import SendMailUsecases from "@/src/application/usecases/send-mail-usecases";
     fastify.setSerializerCompiler(serializerCompiler);
 
     const mailer = NodemailerService.get_instance({
-        host: "localhost",
-        port: 1025,
+        host: process.env.SMTP_HOST || "mailhog",
+        port: Number(process.env.SMTP_PORT) || 1025,
         secure: false
     });
     const send_mail_usecases = new SendMailUsecases(mailer);

@@ -2,9 +2,13 @@
   "name": "app-mailer",
   "version": "1.0.0",
   "description": "",
+  "type": "commonjs",
   "main": "dist/index.js",
   "scripts": {
-    "start:dev": "npx tsx watch src/index.ts"
+    "start:dev": "npx tsx watch src/index.ts",
+    "start": "pnpm run build && node .",
+    "build": "pnpm run compile",
+    "compile": "node esbuild.config.js"
   },
   "dependencies": {
     "nodemailer": "^6.10.0",
@@ -14,7 +18,10 @@
     "opossum": "^8.4.0"
   },
   "devDependencies": {
+    "esbuild": "^0.25.2",
     "typescript": "^5.5.3",
+    "tsconfig-paths": "^4.2.0",
+    "@ef-carbon/tspm": "^2.2.5",
     "@types/nodemailer": "^6.4.17",
     "@types/node": "^22.13.14",
     "@types/opossum": "^8.1.8"

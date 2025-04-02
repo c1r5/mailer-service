@@ -1,7 +1,7 @@
 import {
     MailerConfig, MailerSendMailOptions,
     MailerServiceInterface
-} from "@/src/domain/models/mailer-service-interface";
+} from "@domain/models/mailer-service-interface";
 import { Transporter } from "nodemailer";
 import nodemailer from "nodemailer";
 

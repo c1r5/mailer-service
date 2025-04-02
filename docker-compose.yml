@@ -1,0 +1,20 @@
+services:
+  mailhog:
+    image: mailhog/mailhog
+    restart: always
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+  mailer_service:
+    container_name: mailerservice
+    build:
+      dockerfile: ./Dockerfile
+    ports:
+      - "30123:3000"
+    restart: always
+    depends_on:
+      - mailhog
+    environment:
+      - SMTP_HOST=mailhog
+      - SMTP_PORT=1025

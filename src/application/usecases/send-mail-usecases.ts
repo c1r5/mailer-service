@@ -1,5 +1,5 @@
-import {MailerSendMailOptions, MailerServiceInterface} from "@/src/domain/models/mailer-service-interface";
-import CircuitBreakerService from "@/src/application/services/circuit-breaker-service";
+import {MailerSendMailOptions, MailerServiceInterface} from "@domain/models/mailer-service-interface";
+import CircuitBreakerService from "@application/services/circuit-breaker-service";
 
 export default class SendMailUsecases {
     circuit_breaker_service: CircuitBreakerService
